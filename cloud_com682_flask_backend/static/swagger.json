@@ -1,0 +1,189 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Cloud COM682",
+      "description": "Cloud COM682 Flask API",
+      "version": "1.0.0"
+    },
+    "servers" : [
+        {
+            "url" : "/api/v1.0/"
+        }
+    ],
+    "paths": {
+        "/clips": {
+            "get": {
+              "description": "Receive a list of the top 20 latest clips.",
+              "responses": {}
+            },
+            "post": {
+                "description": "Add new clip with form data.",
+                "responses": {}
+            }
+          },
+        "/clips/{id}" : {
+            "get": {
+                "description": "Receive the metadata for a specific clip.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            },
+            "patch": {
+                "description": "Partial update Metadata for specific clip.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            },
+            "delete": {
+                "description": "Remove specific clip from storage.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            }
+        },
+        "/comments/{id}" : {
+            "get": {
+                "description": "Receive a specific comment by comment id.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            },
+            "patch": {
+                "description": "Partial update comment metadata.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            },
+            "delete": {
+                "description": "Remove specific comment.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            }
+        },
+        "/comments/{clip_id}/{user_id}" : {
+            "post": {
+                "description": "Add new comment to clip by user.",
+                "responses": {},
+                "parameters": [
+                    {
+                        "name": "clip_id",
+                        "in": "path",
+                        "description": "Clip ID value",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User ID value",
+                        "required": true,
+                        "type": "integer"
+                    }
+            ]
+            }
+        },
+        "/poster/{id}" : {
+            "get": {
+                "description": "Receive poster url for clip.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "id",
+                    "in": "path",
+                    "description": "comment ID value",
+                    "required": true,
+                    "type": "integer"
+                }]
+            }
+        },
+        "/upload/thumbnail" : {
+            "post": {
+                "description": "Add new thumbnail / image to storage account.",
+                "responses": {}
+            }
+        },
+        "/upload/video" : {
+            "post": {
+                "description": "Add new video clip to storage account. Takes mp4 file.",
+                "responses": {}
+            }
+        },
+        "/search/{search_term}" : {
+            "get": {
+                "description": "Search for video by title.",
+                "responses": {}
+            }
+        },
+        "/video_to_text/{clip_id}" : {
+            "post" : {
+                "description": "Add transcription to video metadata. Upload a .mov file.",
+                "responses": {}
+            }
+        },
+        "/account/{sub_id}" : {
+            "get" : {
+                "description": "Get the user role for user account. If user account has not be stored / assigned a role. It will default to 'user'.",
+                "responses": {},
+                "parameters": [ {
+                    "name": "sub_id",
+                    "in": "path",
+                    "description": "User ID.",
+                    "required": true,
+                    "type": "string"
+                }]
+            }
+        },
+        "/account/{sub_id}/{role}" : {
+            "get" : {
+                "description": "Set user role for specific user id.",
+                "responses": {},
+                "parameters": [
+                    {
+                        "name": "sub_id",
+                        "in": "path",
+                        "description": "User ID.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "The new user role.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    }
+}

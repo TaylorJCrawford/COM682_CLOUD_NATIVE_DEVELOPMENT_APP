@@ -1,0 +1,10 @@
+---
+azure_storage_connectionstring: "PLACEHOLDER"
+videos_container_name : "videos"
+clips_container_name : "clips"
+thumbnails_container_name : "thumbnails"
+source_folder : "."
+cosmos_db_uri : "https://movie-metadata.documents.azure.com:443/"
+cosmos_db_primary_key : "PLACEHOLDER"
+speech_config_subscription : "PLACEHOLDER"
+speech_config_endpoint : "https://uksouth.api.cognitive.microsoft.com/sts/v1.0/issuetoken"
